@@ -1,12 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import Modal from "../Modal";
 import styles from "./FAQModal.module.css";
 
 const FQAList = [
   {
     question: "What is Meta Pumpkin?",
-    answer: `Meta Pumpkin are a collection of ${process.env.TOTAL_PUMPKINS} randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens`,
+    answer: `Meta Pumpkin is a collection of ${process.env.TOTAL_PUMPKINS} randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens`,
   },
   {
     question: "How do I buy a Meta Pumpkin?",

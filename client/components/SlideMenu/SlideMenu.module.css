@@ -1,0 +1,79 @@
+.container {
+  position: fixed;
+  right: 16px;
+  top: 10vw;
+  width: 160px;
+  transform: translateY(-100vh);
+  animation: popdown 1s ease-in forwards;
+  z-index: 20;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  font-size: 18px;
+}
+
+.info {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  transform: rotateZ(-4deg);
+}
+
+.roadmap {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  transform: rotateZ(4deg);
+  margin-top: 40px;
+}
+
+.faq {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.content::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 60vw;
+  position: absolute;
+  left: 20px;
+  top: -45vw;
+  z-index: -100;
+  background-color: #a2724e;
+}
+
+.content:after {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 60vw;
+  position: absolute;
+  right: 20px;
+  top: -45vw;
+  z-index: -100;
+  background-color: #a2724e;
+}
+
+@keyframes popdown {
+  0% {
+    transform: translateY(-100%);
+  }
+  70% {
+    transform: translateY(10%);
+  }
+  80% {
+    transform: translateY(-10%);
+  }
+  90% {
+    transform: translateY(5%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

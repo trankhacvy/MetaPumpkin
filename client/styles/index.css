@@ -1,0 +1,42 @@
+@import url("normalize.css");
+
+:root {
+  --card-height: 65vh;
+  --card-width: calc(var(--card-height) / 1.5);
+}
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 132deg;
+  inherits: false;
+}
+
+body {
+  font-family: "Irish Grover", cursive;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.h3,
+p {
+  margin: 0;
+}
+
+/* Slider */
+[data-reach-slider-track] {
+  background: darkred !important;
+}
+
+[data-reach-slider-range] {
+  background: darkred !important;
+}
+
+[data-reach-slider-handle] {
+  width: 48px !important;
+  height: 48px !important;
+  background: transparent !important;
+}
+
+[data-reach-slider-marker] {
+  background: black !important;
+}

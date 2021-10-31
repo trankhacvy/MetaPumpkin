@@ -1,0 +1,21 @@
+.imageContainer {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  box-shadow: 0 0 0 5px #e1d8b7, 0 10px 45px #b32626;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}

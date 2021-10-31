@@ -1,0 +1,62 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.priceInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.equal {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 40px;
+}
+
+.priceWrap {
+  display: flex;
+  align-items: center;
+}
+
+.price {
+  font-size: 64px;
+  margin-right: 12px;
+}
+
+.slider {
+  width: 75%;
+  margin-bottom: 60px;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.button {
+  min-width: 160px;
+}
+
+.mintingContainer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+}
+
+.viewScan {
+  display: inline-block;
+  margin-top: 60px;
+  font-size: 24px;
+  color: black;
+}

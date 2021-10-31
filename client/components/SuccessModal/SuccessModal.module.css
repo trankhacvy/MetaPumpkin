@@ -1,0 +1,19 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 48px;
+  margin-top: 0;
+  margin-bottom: 40px;
+}
+
+.viewScan {
+  display: inline-block;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+}

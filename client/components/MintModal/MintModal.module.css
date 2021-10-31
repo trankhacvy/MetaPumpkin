@@ -6,15 +6,27 @@
 }
 
 .title {
-  font-size: 40px;
-  margin-top: 0;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
+@media (min-width: 768px) {
+  .title {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+}
+
 .priceInfo {
-  display: flex;
-  align-items: center;
+  display: block;
   margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .priceInfo {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .equal {
@@ -26,16 +38,37 @@
 .priceWrap {
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .priceWrap {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .price {
-  font-size: 64px;
+  font-size: 32px;
   margin-right: 12px;
 }
 
+@media (min-width: 768px) {
+  .price {
+    font-size: 64px;
+    margin-right: 12px;
+  }
+}
+
 .slider {
-  width: 75%;
+  width: 90%;
   margin-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .slider {
+    width: 75%;
+  }
 }
 
 .actions {

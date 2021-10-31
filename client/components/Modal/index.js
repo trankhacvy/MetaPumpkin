@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { DialogOverlay, DialogContent } from "@reach/dialog";
 import { clickSound } from "../../utils/button";
-import "@reach/dialog/styles.css";
+// import "@reach/dialog/styles.css";
 import styles from "./styles.module.css";
 
 const Modal = ({ children, ...rest }) => (

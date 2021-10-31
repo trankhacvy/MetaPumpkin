@@ -21,9 +21,6 @@ const Header = ({ onClick }) => {
   return (
     <header className={styles.container}>
       <Logo />
-      <Button style={{ zIndex: 100 }} onClick={handleConnect}>
-        {account ? `${truncateHash(account)}` : "Connect"}
-      </Button>
     </header>
   );
 };

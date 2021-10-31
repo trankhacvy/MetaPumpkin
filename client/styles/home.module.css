@@ -7,7 +7,13 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  animation: lightning 4s ease-out infinite;
+  /* animation: lightning 4s ease-out infinite; */
+}
+
+@media (min-width: 768px) {
+  .container {
+    animation: lightning 4s ease-out infinite;
+  }
 }
 
 @keyframes lightning {
@@ -39,7 +45,13 @@
   height: 100%;
   background-image: url("/images/rain.webp");
   opacity: 0.4;
-  animation: rain 0.5s linear infinite;
+  /* animation: rain 0.5s linear infinite; */
+}
+
+@media (min-width: 768px) {
+  .container::before {
+    animation: rain 0.5s linear infinite;
+  }
 }
 
 @keyframes rain {
@@ -69,16 +81,6 @@
   opacity: 0;
   z-index: -1;
   pointer-events: none;
-}
-
-.btnMint {
-  position: absolute;
-  font-size: 24px;
-  bottom: 32px;
-  left: 50%;
-  /* transform: translateX(-50%); */
-  padding-left: 32px;
-  padding-right: 32px;
 }
 
 .pumpkin {

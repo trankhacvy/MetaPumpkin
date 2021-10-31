@@ -1,4 +1,4 @@
-// // SPDX-License-Identifier: MIT OR Apache-2.0
+// SPDX-License-Identifier: MIT OR Apache-2.0
 pragma solidity ^0.8.3;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
@@ -10,11 +10,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract Pumpkin is ERC721URIStorage, Ownable {
     event MintPumpkin (address indexed minter, uint256 startWith, uint256 times);
     
-    uint256 public constant MAX_PUMPKINS = 3113;
+    uint256 public constant MAX_PUMPKINS = 147;
     uint256 public constant MAX_BATCH = 10; 
     
     uint256 public totalPumpkins;
-    uint256 public price = 5000000000000000; // 0.005 BNB
+    uint256 public price = 31000000000000000; // 0.031 BNB
     string public baseURI;
     bool public started = true;
     

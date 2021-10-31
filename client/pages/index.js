@@ -125,6 +125,7 @@ export default () => {
           onInfoClick={onOpenInfoModal}
           onRoadmapClick={onOpenCSModal}
           onFAQClick={onOpenFQAModal}
+          onAddressClick={openMintModal}
         />
         <div className={cx(styles.pumpkin, styles.pumpkin1)} />
         <div className={cx(styles.pumpkin, styles.pumpkin2)} />

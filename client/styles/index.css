@@ -1,4 +1,5 @@
 @import url("normalize.css");
+@import url("@reach/dialog/styles.css");
 
 :root {
   --card-height: 65vh;
@@ -39,4 +40,17 @@ p {
 
 [data-reach-slider-marker] {
   background: black !important;
+}
+
+/* modal */
+[data-reach-dialog-content] {
+  width: 80% !important;
+  margin: 40px auto !important;
+}
+
+@media (min-width: 768px) {
+  [data-reach-dialog-content] {
+    width: 50vw !important;
+    margin: 10vh auto !important;
+  }
 }

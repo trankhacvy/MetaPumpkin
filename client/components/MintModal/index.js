@@ -6,15 +6,13 @@ import Modal from "../Modal";
 import Button from "../Button";
 import Slider from "../Slider";
 import FoxLoading from "../FoxLoading";
+import PumpkinImage from "../PumpkinImage";
 import { useAppContext } from "../../context/AppContext";
 import { usePumbkinContract } from "../../hooks/useContract";
 import { useGetPrice } from "../../hooks/useGetPrice";
 import { useCallWithGasPrice } from "../../hooks/useCallWithGasPrice";
 import styles from "./MintModal.module.css";
 import { clickSound } from "../../utils/button";
-
-const IMAGE_URL =
-  "https://pbs.twimg.com/media/FCNh_HTWEAAIhn8?format=jpg&name=4096x4096";
 
 const MintModal = ({ onSuccess, ...rest }) => {
   const [quantity, setQuantity] = useState(1);
@@ -64,12 +62,7 @@ const MintModal = ({ onSuccess, ...rest }) => {
         ) : (
           <>
             <div className={styles.priceInfo}>
-              <Image
-                src="/images/gif.png"
-                width="160px"
-                objectFit="cover"
-                height="160px"
-              />
+              <PumpkinImage img="/images/preview.gif" />
               <span className={styles.equal}>=</span>
               <div className={styles.priceWrap}>
                 <p className={styles.price}>

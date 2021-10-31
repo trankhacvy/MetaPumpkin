@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import cx from "classname";
 import InfoModal from "../components/InfoModal";
 import MintModal from "../components/MintModal";
 import SuccessModal from "../components/SuccessModal";
@@ -6,6 +7,7 @@ import ComingSoonModal from "../components/ComingSoonModal";
 import FAQModal from "../components/FAQModal";
 import Header from "../components/Header";
 import SlideMenu from "../components/SlideMenu";
+import SEO from "../components/SEO";
 import gsap from "gsap";
 import styles from "../styles/home.module.css";
 import useDisclosure from "../hooks/useDisclosure";
@@ -92,57 +94,55 @@ export default () => {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.contain}>
-        <Header onClick={openMintModal} />
+    <>
+      <SEO />
+      <div className={styles.container}>
+        <div className={styles.contain}>
+          <Header onClick={openMintModal} />
+        </div>
+        <div ref={ref} className={styles.darkLayer}></div>
+        <InfoModal
+          onClick={openMintModal}
+          isOpen={isInfoModalOpen}
+          onDismiss={onCloseInfoModal}
+        />
+        <MintModal
+          onSuccess={handleSuccess}
+          isOpen={isMintModalOpen}
+          onDismiss={onMintModalClose}
+        />
+        <SuccessModal
+          isOpen={isSuccessModalOpen}
+          onDismiss={() => {
+            onSuccessModalClose();
+            setTx("");
+          }}
+          hash={tx}
+        />
+        <ComingSoonModal isOpen={isCSModalOpen} onDismiss={onCSModalClose} />
+        <FAQModal isOpen={isFQAModalOpen} onDismiss={onFQAModalClose} />
+        <SlideMenu
+          onInfoClick={onOpenInfoModal}
+          onRoadmapClick={onOpenCSModal}
+          onFAQClick={onOpenFQAModal}
+        />
+        <div className={cx(styles.pumpkin, styles.pumpkin1)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin2)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin3)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin3)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin4)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin5)} />
+        <div className={cx(styles.pumpkin, styles.pumpkin6)} />
+
+        <audio id="click-sound" controls={false} preload muted={false}>
+          <source src="/assets/click-sound.wav" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio controls={false} loop preload autoPlay muted={false}>
+          <source src="/assets/rainandthunder.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
       </div>
-      <div ref={ref} className={styles.darkLayer}></div>
-      <InfoModal
-        onClick={openMintModal}
-        isOpen={isInfoModalOpen}
-        onDismiss={onCloseInfoModal}
-      />
-      <MintModal
-        onSuccess={handleSuccess}
-        isOpen={isMintModalOpen}
-        onDismiss={onMintModalClose}
-      />
-      <SuccessModal
-        isOpen={isSuccessModalOpen}
-        onDismiss={() => {
-          onSuccessModalClose();
-          setTx("");
-        }}
-        hash={tx}
-      />
-      <ComingSoonModal isOpen={isCSModalOpen} onDismiss={onCSModalClose} />
-      <FAQModal isOpen={isFQAModalOpen} onDismiss={onFQAModalClose} />
-      <SlideMenu
-        onInfoClick={onOpenInfoModal}
-        onRoadmapClick={onOpenCSModal}
-        onFAQClick={onOpenFQAModal}
-      />
-      {/* <div className={cx(styles.pumpkin, styles.pumpkin1)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin2)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin3)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin3)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin4)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin5)} />
-      <div className={cx(styles.pumpkin, styles.pumpkin6)} />
-
-      <audio id="click-sound" controls={false} preload muted={false}>
-        <source src="/assets/click-sound.wav" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio controls={false} loop preload autoPlay muted={false}>
-        <source src="/assets/rain.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio> */}
-
-      <audio id="click-sound" controls={false} preload muted={false}>
-        <source src="/assets/click-sound.wav" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+    </>
   );
 };

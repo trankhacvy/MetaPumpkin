@@ -14,6 +14,7 @@ module.exports = {
     MARKETPLACE_CONTRACT_ADDRESS: process.env.MARKETPLACE_CONTRACT_ADDRESS,
     METAPUMPKIN_CONTRACT_ADDRESS: process.env.METAPUMPKIN_CONTRACT_ADDRESS,
     TOTAL_PUMPKINS: process.env.TOTAL_PUMPKINS,
+    APP_URL: process.env.APP_URL,
   },
   images: {
     domains: ["pbs.twimg.com"],

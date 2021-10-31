@@ -21,7 +21,7 @@ const InfoModal = ({ onClick, ...rest }) => {
   return (
     <Modal {...rest}>
       <div className={styles.container}>
-        <PumpkinImage />
+        <PumpkinImage img="/images/preview.gif" />
         <p className={styles.intro}>
           Meta Pumpkin are a collection of {process.env.TOTAL_PUMPKINS} randomly
           generated and unique creatures living on the BSC blockchain in the

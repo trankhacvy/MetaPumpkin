@@ -1,9 +1,10 @@
 import "../styles/index.css";
-import "normalize.css";
+import "aos/dist/aos.css";
 import Head from "next/head";
 import { Web3ReactProvider } from "@web3-react/core";
 import { Toaster } from "react-hot-toast";
 import AppContextProvider from "../context/AppContext";
+import SEO from "../components/SEO";
 import { useEagerConnect, useInactiveListener } from "../hooks/useEagerConnect";
 import { getLibrary } from "../utils/connector";
 
@@ -16,12 +17,14 @@ const AppWrapper = ({ children }) => {
   return <div>{children}</div>;
 };
 
+const description = `A collection of ${process.env.TOTAL_PUMPKINS} randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens`;
+
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <SEO />
       <Head>
-        <title>Pumpkin | Collect and bread digital pumpkins</title>
-        <meta name="theme-color" content="#462D17" />
+        <meta name="theme-color" content="#ff6d00" />
         <meta name="viewport" content="width=device-width" />
 
         <link
@@ -53,6 +56,8 @@ function MyApp({ Component, pageProps }) {
           rel="stylesheet"
         />
 
+        <script src="https://rawcdn.githack.com/flackr/scroll-timeline/94866999efe41b3ccba846be7ed37c9313dd880e/dist/scroll-timeline.js" />
+
         {GA_TRACKING_ID && (
           <>
             <script async src="https://www.google-analytics.com/analytics.js" />
@@ -67,6 +72,9 @@ function MyApp({ Component, pageProps }) {
             />
           </>
         )}
+
+        <link rel="preload" as="image" href="/images/bg-3.webp" />
+        <link rel="preload" as="image" href="/images/bg-mint.webp" />
       </Head>
       <Web3ReactProvider getLibrary={getLibrary}>
         <AppContextProvider>

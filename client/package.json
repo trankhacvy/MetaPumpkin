@@ -1,11 +1,12 @@
 {
-  "name": "client",
+  "name": "meta_pumpkins",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "lint": "next lint",
     "start": "next start",
     "deploy": "vercel deploy",
     "link-contracts": "cd lib && ln -s ../../build/contracts contracts"
@@ -14,10 +15,12 @@
     "@chakra-ui/icons": "^1.0.15",
     "@emotion/react": "^11",
     "@ethersproject/experimental": "^5.4.0",
+    "@reach/accordion": "^0.16.1",
     "@reach/dialog": "^0.16.2",
     "@reach/slider": "^0.16.0",
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
+    "aos": "^2.3.4",
     "apollo-server-micro": "^3.3.0",
     "classname": "^0.0.0",
     "ethers": "^5.4.6",
@@ -34,10 +37,20 @@
     "react-hook-form": "^7.14.2",
     "react-hot-toast": "^2.1.1",
     "react-icons": "^4.2.0",
+    "react-spring": "^9.3.0",
     "swr": "^1.0.0",
+    "use-sound": "^4.0.1",
     "web3": "^1.0.0-beta.34"
   },
   "devDependencies": {
-    "dotenv": "^10.0.0"
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.34",
+    "autoprefixer": "^10.4.0",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.2.0",
+    "eslint-config-next": "^12.0.3",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.4.4"
   }
 }

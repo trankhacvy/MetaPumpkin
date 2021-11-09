@@ -45,7 +45,6 @@
   height: 100%;
   background-image: url("/images/rain.webp");
   opacity: 0.4;
-  /* animation: rain 0.5s linear infinite; */
 }
 
 @media (min-width: 768px) {
@@ -198,5 +197,55 @@
       drop-shadow(-0.2vw 0.2vw 0.1em #2d0b2f);
     -webkit-filter: grayscale(100%) brightness(0%) contrast(200%)
       drop-shadow(-0.2vw 0.2vw 0.1em #2d0b2f);
+  }
+}
+
+/* Home css */
+.into {
+  background-image: url("/images/bg-3.webp");
+  height: calc(140vh);
+}
+
+.mintSection {
+  background-image: url("/images/bg-mint.webp");
+  height: calc(140vh);
+}
+
+.neonCard {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: -12px;
+  z-index: 1;
+  background: linear-gradient(45deg, #ff005e, #fbff00);
+  animation: neon-card 1.5s linear infinite;
+}
+
+.neonCardContent {
+  position: relative;
+  background: linear-gradient(45deg, #272325 40%, #020104);
+  color: #fff;
+  z-index: 100;
+}
+
+.neonCardContent:after {
+  content: " ";
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  bottom: -12px;
+  left: -12px;
+  z-index: 1;
+  background: linear-gradient(45deg, #ff005e, #fbff00);
+  animation: neon-card 1.5s linear infinite;
+}
+
+@keyframes neon-card {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
   }
 }

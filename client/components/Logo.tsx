@@ -1,11 +1,10 @@
 import React from "react";
-import styles from "./Logo.module.css";
 
 const Logo = () => (
-  <div className={styles.logo}>
+  <div className="logo text-center text-2xl md:text-5xl">
     <b>
       <span>Me</span>ta<span>p</span>
-      <span>um</span>p<span>ki</span>n
+      <span>um</span>p<span>ki</span>ns
     </b>
   </div>
 );

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 
 const description =
-  "MetaPumpkin is a collection of 147 randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens";
+  "MetaPumpkins are a collection of 147 randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens";
 
 const CommonSEO = () => {
   const router = useRouter();

@@ -4,7 +4,13 @@ import toast from "react-hot-toast";
 import { createContext } from "../utils/createContext";
 import { injected, setupNetwork } from "../utils/connector";
 
-const [Provider, useAppContext] = createContext();
+export interface ContextValues {
+  connect: () => void
+  disconnect: () => void
+  account: string
+}
+
+const [Provider, useAppContext] = createContext<ContextValues>();
 
 const AppContextProvider = ({ children }) => {
   const { account, activate, deactivate } = useWeb3React();

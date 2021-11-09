@@ -15,9 +15,11 @@ module.exports = {
     METAPUMPKIN_CONTRACT_ADDRESS: process.env.METAPUMPKIN_CONTRACT_ADDRESS,
     TOTAL_PUMPKINS: process.env.TOTAL_PUMPKINS,
     APP_URL: process.env.APP_URL,
+    IPFS_GATEWAY: process.env.IPFS_GATEWAY,
+    NFT_BASE_URI: process.env.NFT_BASE_URI,
   },
   images: {
-    domains: ["pbs.twimg.com"],
+    domains: ["pbs.twimg.com", "cloudflare-ipfs.com"],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if

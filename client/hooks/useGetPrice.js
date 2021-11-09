@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { BigNumber } from "ethers";
 import { Zero } from "@ethersproject/constants";
 import { usePumbkinContract } from "./useContract";
 
@@ -7,6 +8,8 @@ export const FetchStatus = {
   SUCCESS: "success",
   FAILED: "failed",
 };
+
+const PRICE = "31000000000000000";
 
 export const useGetPrice = () => {
   const [fetchStatus, setFetchStatus] = useState(FetchStatus.NOT_FETCHED);
@@ -28,6 +31,8 @@ export const useGetPrice = () => {
 
     if (contract) {
       fetchPrice(contract);
+    } else {
+      setPrice(BigNumber.from(PRICE));
     }
   }, [contract, setPrice, setFetchStatus]);
 

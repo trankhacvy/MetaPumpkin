@@ -1,7 +1,9 @@
 import "../styles/index.css";
 import "aos/dist/aos.css";
 import Head from "next/head";
+import theme from '../styles/theme'
 import { Web3ReactProvider } from "@web3-react/core";
+import { ChakraProvider } from '@chakra-ui/react'
 import { Toaster } from "react-hot-toast";
 import AppContextProvider from "../context/AppContext";
 import SEO from "../components/SEO";
@@ -76,27 +78,29 @@ function MyApp({ Component, pageProps }) {
         <link rel="preload" as="image" href="/images/bg-3.webp" />
         <link rel="preload" as="image" href="/images/bg-mint.webp" />
       </Head>
-      <Web3ReactProvider getLibrary={getLibrary}>
-        <AppContextProvider>
-          <AppWrapper>
-            <Toaster
-              toastOptions={{
-                className: "",
-                duration: 4000,
-                style: {
-                  backgroundColor: "#c57c5c",
-                  color: "black",
-                  fontSize: "18px",
-                  padding: "16px 24px",
-                  borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px",
-                  boxShadow: "0 0 0 5px #e1d8b7",
-                },
-              }}
-            />
-            <Component {...pageProps} />
-          </AppWrapper>
-        </AppContextProvider>
-      </Web3ReactProvider>
+      <ChakraProvider theme={theme}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <AppContextProvider>
+            <AppWrapper>
+              <Toaster
+                toastOptions={{
+                  className: "",
+                  duration: 4000,
+                  style: {
+                    backgroundColor: "#c57c5c",
+                    color: "black",
+                    fontSize: "18px",
+                    padding: "16px 24px",
+                    borderRadius: "255px 15px 225px 15px / 15px 225px 15px 255px",
+                    boxShadow: "0 0 0 5px #e1d8b7",
+                  },
+                }}
+              />
+              <Component {...pageProps} />
+            </AppWrapper>
+          </AppContextProvider>
+        </Web3ReactProvider>
+      </ChakraProvider>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import Header from "../components/Header/Header";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 
 const HomeSection = () => {
   const ref = useRef<HTMLDivElement>();
@@ -35,18 +36,36 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <div id="home" className="relative h-screen">
-      <div ref={ref} className="w-full h-screen fixed filter blur-sm">
+    <Box id="home" position="relative" h="100vh">
+      <Box
+        ref={ref}
+        w="full"
+        h="100vh"
+        position="fixed"
+        filter="auto"
+        blur="sm"
+      >
         <Image src="/images/bg.webp" layout="fill" priority />
-      </div>
+      </Box>
       <Header />
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center">
-        <div className="home-typing">MetaPumpkins Is Coming</div>
-        <div className="relative animate-bounce w-20 h-20 mt-10">
+      <Flex
+        position="absolute"
+        inset={0}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <h2 className="home-typing">MetaPumpkins Is Coming</h2>
+        <Box
+          position="relative"
+          w="20"
+          h="20"
+          mt="10"
+          className="animate-bounce"
+        >
           <Image layout="fill" src="/images/arrow-down.webp" priority />
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Flex>
+    </Box>
   );
 };
 

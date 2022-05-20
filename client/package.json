@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.8.1",
     "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "@ethersproject/experimental": "^5.4.0",
     "@reach/accordion": "^0.16.1",
     "@reach/dialog": "^0.16.2",
@@ -25,6 +27,7 @@
     "classname": "^0.0.0",
     "ethers": "^5.4.6",
     "form-data": "^4.0.0",
+    "framer-motion": "^6",
     "graphql": "^15.5.2",
     "gsap": "^3.8.0",
     "isomorphic-unfetch": "^3.1.0",

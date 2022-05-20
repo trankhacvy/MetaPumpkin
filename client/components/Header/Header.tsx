@@ -6,6 +6,7 @@ import Button from "../Button";
 import NextLink from "../NextLink";
 import { useAppContext } from "../../context/AppContext";
 import truncateHash from "../../utils/truncateHash";
+import { Box } from "@chakra-ui/react";
 
 const navList = [
   { label: "Intro", href: "#intro" },
@@ -30,12 +31,19 @@ const Header = () => {
     }
   };
 
+  const containerProps = isTop
+    ? {
+        bg: "black",
+        opacity: 0.8,
+      }
+    : {};
+
   useEffect(() => {
     const handler = () => {};
 
     window.addEventListener("scroll", handler);
 
-    window.onscroll = function() {
+    window.onscroll = function () {
       if (typeof window === "undefined") return;
       const body = window.document.body; //IE 'quirks'
       const document = window.document.documentElement; //IE with doctype
@@ -54,10 +62,15 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={cx("fixed z-20 left-0 right-0 top-0", {
-        "opacity-80 bg-black transition-colors transition-opacity": isTop,
-      })}
+    <Box
+      as="header"
+      position="fixed"
+      zIndex={20}
+      left={0}
+      right={0}
+      top={0}
+      transition="opacity 200ms ease-in-out"
+      {...containerProps}
     >
       <div className="max-w-screen-lg xl:max-w-screen-xl relative mx-auto">
         <div className="flex px-4 md:px-8 py-4 items-center justify-between">
@@ -114,7 +127,7 @@ const Header = () => {
           </nav>
         </div>
       </div>
-    </header>
+    </Box>
   );
 };
 

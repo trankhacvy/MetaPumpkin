@@ -6,11 +6,11 @@ import { useAppContext } from "../context/AppContext";
 import styles from "../styles/home.module.css";
 
 const IntroSection = () => {
-  const { account, connect } = useAppContext();
+  const { account, openConnectWallet } = useAppContext();
 
   const handleClick = () => {
     if (!account) {
-      connect();
+      openConnectWallet();
     } else {
       document.getElementById("mint").scrollIntoView({
         behavior: "smooth",

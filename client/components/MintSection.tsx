@@ -17,7 +17,7 @@ import styles from "../styles/home.module.css";
 import { fetchImageUrl } from "../utils/fetchImageUrl";
 
 const MintSection = () => {
-  const { account, connect } = useAppContext();
+  const { account, connect, openConnectWallet } = useAppContext();
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(false);
   const [tx, setTx] = useState("");
@@ -46,20 +46,11 @@ const MintSection = () => {
         if (events && Array.isArray(events)) {
           const tokenIds = [];
           events.forEach(async (event) => {
-            if (event.event === "Transfer") {
+            if (event.event === "MintPumpkin") {
               const args = event.args;
-              if (Array.isArray(args) && args.length >= 3) {
-                const address = args[1];
-                let tokenId = args[2];
-                tokenIds.push(tokenId);
-                // console.log("index", address, tokenId);
-                // if (address && tokenId && BigNumber.isBigNumber(tokenId)) {
-                //   console.log("index", tokenId.toNumber());
-                //   const url = await contract.tokenURI(tokenId.toNumber());
-                //   console.log("url", url);
-                //   // setImages()
-                //   images.push(url);
-                // }
+              if (Array.isArray(args) && args.length >= 2) {
+                let tokenId = args[1];
+                tokenIds.push(tokenId.toString());
               }
             }
           });
@@ -101,7 +92,7 @@ const MintSection = () => {
             {loading ? "Making transaction..." : "Create your awesome Pumpkin"}
           </h4>
           {loading ? (
-            <MintingView />
+            <MintingView url={tx} />
           ) : (
             <>
               <div className="md:flex md:items-center">
@@ -121,7 +112,7 @@ const MintSection = () => {
               <div className="w-full md:w-4/5">
                 <Slider value={quantity} onChange={(val) => setQuantity(val)} />
               </div>
-              <Button onClick={account ? handleMint : connect}>
+              <Button onClick={account ? handleMint : openConnectWallet}>
                 {account
                   ? `Create ${
                       quantity === 1 ? "one pumpkin" : `${quantity} pumpkins`
@@ -147,10 +138,18 @@ const MintSection = () => {
   );
 };
 
-const MintingView = () => {
+const MintingView = ({ url }: { url?: string }) => {
   return (
     <div className="w-full space-y-10">
       <FoxLoading />
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block text-lg md:text-2xl text-center text-black mt-8"
+      >
+        View on BSC scan
+      </a>
     </div>
   );
 };

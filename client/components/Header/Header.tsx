@@ -15,13 +15,13 @@ const navList = [
 ];
 
 const Header = () => {
-  const { account, connect } = useAppContext();
+  const { account, openConnectWallet, disconnect } = useAppContext();
   const [isTop, setIsTop] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
 
   const handleConnect = () => {
     if (!account) {
-      connect();
+      openConnectWallet();
     } else {
       const mintSection = document.getElementById("mint");
       if (mintSection) {
@@ -69,7 +69,7 @@ const Header = () => {
               <Image width="36px" height="36px" src="/images/pumpkin.webp" />
             </button>
             <NextLink href="#home">
-              <a>
+              <a href="#home">
                 <Logo />
               </a>
             </NextLink>
@@ -80,16 +80,19 @@ const Header = () => {
                 {navList.map((nav) => (
                   <li key={nav.label}>
                     <NextLink href={nav.href}>
-                      <a>{nav.label}</a>
+                      <a href={nav.href}>{nav.label}</a>
                     </NextLink>
                   </li>
                 ))}
               </ul>
             </nav>
           </div>
-          <Button onClick={handleConnect}>
-            {account ? `${truncateHash(account)}` : "Connect"}
-          </Button>
+          <div className="flex items-center space-x-4">
+            <Button onClick={handleConnect}>
+              {account ? `${truncateHash(account)}` : "Connect"}
+            </Button>
+            {account && <Button onClick={disconnect}>Disconnect</Button>}
+          </div>
         </div>
         <div
           style={{ top: "80px" }}

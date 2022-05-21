@@ -7,6 +7,7 @@ import AppContextProvider from "../context/AppContext";
 import SEO from "../components/SEO";
 import { useEagerConnect, useInactiveListener } from "../hooks/useEagerConnect";
 import { getLibrary } from "../utils/connector";
+import ConnectWalletModal from '../components/ConnectWalletModal'
 
 const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
@@ -14,10 +15,13 @@ const AppWrapper = ({ children }) => {
   const triedEager = useEagerConnect();
   useInactiveListener(!triedEager);
 
-  return <div>{children}</div>;
+  return (
+    <>
+      <ConnectWalletModal />
+      {children}
+    </>
+  );
 };
-
-const description = `A collection of ${process.env.TOTAL_PUMPKINS} randomly generated and unique creatures living on the BSC blockchain in the form of ERC-721 tokens`;
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -82,7 +86,7 @@ function MyApp({ Component, pageProps }) {
             <Toaster
               toastOptions={{
                 className: "",
-                duration: 4000,
+                duration: 3500,
                 style: {
                   backgroundColor: "#c57c5c",
                   color: "black",

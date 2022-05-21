@@ -8,7 +8,6 @@ const SVGComponent = ({ width = 16, height = 16, ...rest }: any) => (
     width={width}
     height={height}
     viewBox="0 0 24 24"
-    wid
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >

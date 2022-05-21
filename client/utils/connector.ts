@@ -1,5 +1,7 @@
+import { AbstractConnector  } from '@web3-react/abstract-connector'
 import { Web3Provider } from "@ethersproject/providers";
 import { InjectedConnector } from "@web3-react/injected-connector";
+import { WalletLinkConnector } from "@web3-react/walletlink-connector";
 import toast from "react-hot-toast";
 
 const POLLING_INTERVAL = 12000;
@@ -14,9 +16,32 @@ export const injected = new InjectedConnector({
   supportedChainIds: [parseInt(process.env.SUPPORTED_CHAIN_ID, 10)],
 });
 
+const coinbaseWallet = new WalletLinkConnector({
+  url: process.env.RPC_URL,
+  appName: "MetaPumpkins",
+  supportedChainIds: [parseInt(process.env.SUPPORTED_CHAIN_ID, 10)],
+ });
+
 export const RPC_URLS = {
   [process.env.SUPPORTED_CHAIN_ID]: process.env.RPC_URL,
 };
+
+export type WalletConnectorType = 'InjectedConnector' | 'WalletLinkConnector'
+
+
+export const walletConnectors : { [key: string] : {
+  key: WalletConnectorType,
+  connector: AbstractConnector
+ } } = {
+  InjectedConnector: {
+    key: 'InjectedConnector',
+    connector: injected
+  },
+  WalletLinkConnector: {
+    key: 'WalletLinkConnector',
+    connector: coinbaseWallet
+  },
+}
 
 /**
  * Prompt the user to add BSC as a network on Metamask, or switch to BSC if the wallet is on a different network
@@ -52,8 +77,8 @@ export const setupNetwork = async () => {
                 chainId: `0x${chainId.toString(16)}`,
                 chainName: process.env.CHAIN_NAME,
                 nativeCurrency: {
-                  name: "ETH",
-                  symbol: "eth",
+                  name: "BNB",
+                  symbol: "bnb",
                   decimals: 18,
                 },
                 rpcUrls: RPC_URLS,
